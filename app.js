@@ -1,7 +1,8 @@
 const birimler = {
-    agirlik: ["kilo", "gram", "pound"],
+    agirlik: ["kilogram", "gram", "pound"],
     uzaklik: ["metre", "santimetre", "feet", "inç"],
-    sicaklik: ["Celsius", "Fahrenheit", "Kelvin"]
+    sicaklik: ["celsius", "fahrenheit", "kelvin"],
+    hacim: ["litre", "mililitre", "galon"]
 }
 
 const selectName = ["selectWeight", "selectLength"];
@@ -28,6 +29,10 @@ function selectTransaction(){
         denemeparagraf.innerHTML = "şuan sicaklıktasın"
         optionValueAdd(birimlerSecilen);
     }
+    else if(userSelection.value == "hacim"){
+        denemeparagraf.innerHTML = "şuan hacimdesin"
+        optionValueAdd(birimlerSecilen)
+    }
     else{
         denemeparagraf.innerHTML = "bir şey seçmediniz"
     }
@@ -44,5 +49,7 @@ function optionValueAdd(birimlerSecilen){
             console.log(element)
             element.innerHTML += `<option value = "${birim}">${birim}</option>`; 
         });
-    }
+    }    
 }
+
+
