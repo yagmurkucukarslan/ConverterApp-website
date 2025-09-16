@@ -159,7 +159,7 @@ const converters = [
                         return console.log("geçersiz değer girdiniz")
                     }
                     else{
-                        console.log(donusum);
+                        return donusum;
                     }
                 }
             }
@@ -188,7 +188,7 @@ const converters = [
                         console.log("geçersiz değer girdiniz")
                     }
                     else{
-                        console.log(donusum);
+                        return donusum
                     }
                 }
             }
@@ -223,28 +223,58 @@ const converters = [
     },
 ]
 
-document.getElementById("selectFirt").addEventListener("change",birimSecimi)
-document.getElementById("selectSecond").addEventListener("change",birimSecimi)
 
+function convertFunction(){
+    const userUnitSelectOne =  document.getElementById("selectFirt")
+    const userUnitSelectSecond =  document.getElementById("selectSecond")
+    const userUnitSelectOneValue = userUnitSelectOne.value
+    const userUnitSelectSecondValue = userUnitSelectSecond.value
 
-function birimSecimi(){
-    const userUnitSelectone =  document.getElementById("selectFirt")
-    const userUnitSelectsecond =  document.getElementById("selectSecond")
+    const input = document.getElementById("inputValue")
+    const inputValue = input.value
+    const output = document.getElementById("outputValue")
 
-    const birincibirimSecimi = userUnitSelectone.value
-    const ikincibirimsecimi = userUnitSelectsecond.value
-    const inputgiris = document.getElementById("inputValue").value
-    console.log("birinciii "+birincibirimSecimi)
-    console.log("ikinci "+ikincibirimsecimi) 
+    
 
-    //const fetge = converters.find((x) => (x.from_key == birincibirimSecimi && x.to_key == ikincibirimsecimi)).transactions[0].result(1000)
-    //console.log(fetge)
-    const deneme = 
-    converters.find((c) => c.from_key == birincibirimSecimi).transactions.find((e) => e.to_key == ikincibirimsecimi).result(inputgiris)
-    console.log(deneme)
+    if(inputValue != null || inputValue !== ""){ 
+        if(isNaN(inputValue)){ 
+            inputValue = "" 
+            output = "" 
+        } else{ 
+            if(userUnitSelectOneValue == "kelvin"){ 
+                console.log("kelvin seçtin") 
+                input.min = "0" 
+                input.value = input.value.replace(/[^0-9]/g, ""); 
+            } 
+                const findResult = converters.find((c) => c.from_key == userUnitSelectOneValue).transactions.find((e) => e.to_key == userUnitSelectSecondValue).result(inputValue) 
+                output.value = findResult.toFixed(4)
+                console.log(findResult) 
 
+        } 
+    } 
+    else{ 
+        return 
+    }
 }
-//(c) => c.transactions.find((e) => e.to_key == ikincibirimsecimi
+    
 
 
+document.getElementById("inputValue").addEventListener("keypress", function(event) {
+    const userUnitSelectOne =  document.getElementById("selectFirt")
+    const userUnitSelectOneValue = userUnitSelectOne.value
+    const input = document.getElementById("inputValue")
+    inputValue = input.value
+    const basilanDeger = event.key
+    if(userUnitSelectOneValue == "kelvin"){
+        if(basilanDeger == "-"){
+            event.preventDefault()
+        }
+    }
+    else{
+        if(inputValue.length >= 1 && basilanDeger == "-"){
+            event.preventDefault()
+        }
+    }
 
+    
+})

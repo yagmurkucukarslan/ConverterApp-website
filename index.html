@@ -7,38 +7,47 @@
     <title>Converter App</title>
 
 </head>
-<body>
-    <p id="paragraf">şuan seçilen: </p>
-    <div class="main">
+<body onload="selectTransaction()">
+    <div>
+        <h1>Birim Dönüştürücü</h1>
+    </div>
+    <br>
+    <br>    
+    <div class="main-container">
         <form action="#">
-            <div class="">
-                <select name="" id="conversionType">
-                    <option value="agirlik">Ağırlık Dönüşümü</option>
-                    <option value="uzaklik">Uzaklık Dönüşümü</option>
-                    <option value="sicaklik">Sıcaklık Dönüşümü</option>
-                    <option value="hacim">Hacim Dönüşümü</option>
+            <div class="main-select">
+                <select name="" id="conversionType" onchange="selectTransaction()" class="main-selector">
+                    <option value="weight">Ağırlık Dönüşümü</option>
+                    <option value="distance">Uzaklık Dönüşümü</option>
+                    <option value="temperature">Sıcaklık Dönüşümü</option>
+                    <option value="volume">Hacim Dönüşümü</option>
                 </select>
             </div>
             <br>
-            <div class="main-input">
-                <div class="input">
-                    <input type="text" id="inputValue">
+            <div class="input-output">
+                <div class="main-input">
+                    <div class="selection">
+                        <select name="" id="selectFirt" class="selector" onchange="convertFunction()">
+                        </select>
+                    </div>
+                    <div class="input">
+                        <input type="number" id="inputValue" oninput="convertFunction()">
+                    </div>
                 </div>
-                <div class="input">
-                    <input type="text" id="inputValue2">
+                <div class="change-button" onclick="changeOption()">
+                    <button class="button">⥁</button>
+                </div>
+                <div class="main-output">
+                    <div class="selection">
+                        <select name="" id="selectSecond" class="selector" onchange="convertFunction()">
+                        </select>
+                    </div>
+                    <div class="output">
+                            <input type="number" id="outputValue" readonly>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="selection">
-                    <select name="" id="selectFirt" class="selector">
-                    </select>
-                </div>
-                <div class="selection">
-                    <select name="" id="selectSecond" class="selector">
-                    </select>
-                </div>
-            </div>
-
+            
         </form>
     </div>
     <script src="app.js"></script>

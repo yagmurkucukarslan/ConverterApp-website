@@ -1,0 +1,62 @@
+Converter App (Birim Dönüştürücü Uygulaması)
+
+
+1. Ne Yaptım?
+
+Bu projede Converter App (Birim Dönüştürücü Uygulama) geliştirdim. 
+Projenin amacı; HTML, CSS ve JavaScript teknolojilerini kullanarak temel web geliştirme yetkinliklerini artırmak, 
+kullanıcıdan alınan verilerle anlık hesaplamalar yapabilmeyi öğretmekti.
+
+Projenin Tanımı:
+Converter App, farklı ölçü birimlerini birbirine dönüştüren küçük ölçekli bir web uygulamasıdır. 
+Kullanıcı bir sayı girdiğinde, uygulama seçilen kategorilere göre (ağırlık, uzunluk, sıcaklık, hacim) otomatik olarak diğer ölçü birimlerine dönüştürme işlemini yapmaktadır.
+
+Uygulama, kullanıcıdan alınan değerleri anlık (oninput) olarak hesaplamakta ve sonuçları ekrana yansıtmaktadır.
+
+
+
+2. Karşılaşılan Zorluklar
+
+Proje geliştirme sürecinde birkaç teknik sorunla karşılaştım:
+
+Aynı Birim Tekrarı: Kullanıcı uzunluk dönüşümü yapmak istediğinde, hem ilk birim hem de ikinci birim seçeneklerinde aynı değer 
+(örneğin metre ↔ metre) görünebiliyordu. Bu durum kullanıcı deneyimini olumsuz etkiliyordu.
+
+Kelvin Değeri Sorunu: Kullanıcı negatif Kelvin değeri girebiliyordu. 
+Oysa fiziksel olarak 0 Kelvin’in altı mümkün değildir. Bu sorunun önüne geçmek için ek kontroller yapılması gerekti.
+
+Input Hataları: Kullanıcı, giriş alanına sayılar arasına birden fazla eksi işareti koyabiliyor veya 
+harf/simge gibi geçersiz karakterler girebiliyordu. Bu da yanlış hesaplamalara yol açıyordu.
+
+
+
+3. Neler Öğrendim?
+
+Proje sürecinde hem temel hem de ileri düzey web geliştirme konularında yeni bilgiler edindim:
+
+HTML ile form ve input alanlarının nasıl oluşturulduğunu,
+
+JavaScript ile:
+
+DOM üzerinden verilerin alınarak işlenmesini,
+
+Matematiksel formüllerle farklı birim dönüşümleri yapmayı,
+
+Anlık değişikliklerle (oninput eventi) kullanıcılara dinamik sonuç göstermeyi öğrendim.
+
+
+
+
+
+4. Proje Sürecinde Sorduğum Sorular
+
+Proje geliştirirken daha iyi bir uygulama ortaya çıkarabilmek için şu soruları sordum:
+
+Dinamik olarak select option nasıl oluşturulur?
+
+Kullanıcı girişinde rakamların arasına geçersiz eksi değer girilmemesi için hangi yöntemler kullanılabilir?
+
+Dönüşüm fonksiyonları yazılırken, her dönüşümü ayrı ayrı tekrar etmeden daha kısa ve verimli bir yöntem nasıl geliştirilebilir?
+
+Aynı birimden aynı birime dönüşüm yapılmaması için hangi kontroller eklenmelidir?
+
